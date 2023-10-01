@@ -137,12 +137,12 @@ func main() {
 			go sort(partitions[i], c)
 		}
 
+		for i := 0; i < 4; i++ {
+			stored_channels := <-c
+			fmt.Printf("This is sorted slices stored on go routines %v: %v\n", i+1, stored_channels)
+		}
 		result := merge_sorted_slices(partitions...)
 
-		// receive all values stored in buffered channels
-		stored_channels := <-c
-
-		fmt.Printf("This is sorted slices stored on go routines: %v\n", stored_channels)
 		fmt.Printf("This is the final sorted result: %v\n", result)
 	}
 
