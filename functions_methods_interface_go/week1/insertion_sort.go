@@ -17,28 +17,19 @@ func swap2(sli []int, idx int) {
 }
 
 func insertion_sort(slice []int) {
-	// for i := 0; i < len(slice); i++ {
-	// 	for j := 0; j < (len(slice))-1; j++ {
-	// 		if slice[j] > slice[j+1] {
-	// 			swap(slice, j)
-	// 		}
-	// 	}
-	// }
-
-	for i := 1; i < len(slice); i++ {
-		j := i
-		for j > 0 && slice[j] < slice[j-1] {
-			swap(slice, j)
-			j--
+	for i := 0; i < len(slice); i++ {
+		for j := 0; j < (len(slice))-1; j++ {
+			if slice[j] > slice[j+1] {
+				swap(slice, j)
+			}
 		}
 	}
 
-	// for i := len(slice) - 2; i >= 0; i-- {
+	// for i := 1; i < len(slice); i++ {
 	// 	j := i
-
-	// 	for j <= len(slice)-2 && slice[j] > slice[j+1] {
-	// 		swap2(slice, j)
-	// 		j++
+	// 	for j > 0 && slice[j] < slice[j-1] {
+	// 		swap(slice, j)
+	// 		j--
 	// 	}
 	// }
 
